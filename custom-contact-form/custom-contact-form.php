@@ -52,11 +52,11 @@ function handle_form_submission() {
     $email = sanitize_email($_POST['email']);
 
     if (!is_valid_email($email)) {
-        echo '<p class="error">Invalid email address.</p>';
+        echo '<p>Invalid email address.</p>';
         return;
     }
 
-    echo '<p class="success">Email sent successfully!!!</p>';
+    echo '<p>Email sent successfully!!!</p>';
     add_contact_to_hubspot($first_name, $last_name, $email, $subject, $message);
     log_message($first_name, $last_name, $subject, $message, $email);
 }
